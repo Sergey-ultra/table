@@ -1,0 +1,16 @@
+.common{
+    float:left;
+    width: 750px;
+}
+.reset{
+
+    float:right;
+}
+
+.userInput{
+
+    width: 550px;
+}
+.userInput button {
+    background: linear-gradient(#42a1ec, #0070c9);
+}

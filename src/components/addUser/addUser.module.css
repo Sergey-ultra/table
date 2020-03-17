@@ -1,0 +1,26 @@
+.common{
+width:900px;
+    height:100%;
+    padding-left:150px;
+    height: 100px;
+
+}
+.Block {
+    padding:10px;
+    float: right;
+}
+.userInput{
+    display: flex;
+    float: left;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
+.userInputHidden{
+    display:none;
+}
+
+forma {
+    border: solid black 3px;
+
+}
