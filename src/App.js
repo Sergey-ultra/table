@@ -7,14 +7,14 @@ import {BrowserRouter, Route} from "react-router-dom";
 
 function App() {
 
-  return (
-      <BrowserRouter>
-    <div className="App">
-        <Route path='/' render={() => <Choice/>}/>
-        <Route path='/table' render={() => <TableContainer/>}/>
-    </div>
-      </BrowserRouter>
-  );
+    return (
+        <BrowserRouter >
+            <div className="App">
+                <Route exact path='/' render={() => <Choice/>}/>
+                <Route path='/table' render={() => <TableContainer/>}/>
+            </div>
+        </BrowserRouter>
+    );
 }
 
 export default App;

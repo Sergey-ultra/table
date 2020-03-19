@@ -48,54 +48,53 @@ class TableContainer extends React.Component {
         let pointSlice = (this.props.currentPage - 1) * this.props.pageSize;
         let pointSlice2 = pointSlice + this.props.pageSize;
 
-        return (<div classname ={tableContainer}>
-                <Pagination
-                    totalCount={this.props.totalCount}
-                    pageSize={this.props.pageSize}
-                    currentPage={this.props.currentPage}
-                    isFiltered ={this.props.isFiltered}
-                    OnPageNumberChange={this.props.OnPageNumberChange}
-                    paginationPortionSize ={this.props.paginationPortionSize}
-                    selectedUserId={this.props.selectedUserId}
+        return (
+            <div classname={tableContainer}>
+                <div className={tableContainer.header}>
+                    <Pagination
+                        totalCount={this.props.totalCount}
+                        pageSize={this.props.pageSize}
+                        currentPage={this.props.currentPage}
+                        isFiltered={this.props.isFiltered}
+                        OnPageNumberChange={this.props.OnPageNumberChange}
+                        paginationPortionSize={this.props.paginationPortionSize}
+                        selectedUserId={this.props.selectedUserId}
+                    />
 
-                />
+                    <AddUser
+                        addNewUserToRedux={this.props.addNewUserToRedux}
+                    />
 
-                <AddUser
-                    addNewUserToRedux={this.props.addNewUserToRedux}
-                />
 
-                <div className={tableContainer.container}>
-                    <div className ={tableContainer.filter}>
-                       <Filter
+                    <div className={tableContainer.filter}>
+                        <Filter
                             selectedUserId={this.props.selectedUserId}
                             setCurrentUser={this.props.setCurrentUser}
-                            filter= {this.props.filter}
-                            resetFilter ={this.props.resetFilter}
-                    />
-                    </div>
-                    <div className={tableContainer.table}>
-                        <Table table={(this.props.isFiltered)
-                            ? this.props.filteredTable.slice(pointSlice, pointSlice2)
-                            : this.props.table.slice(pointSlice, pointSlice2)}
-
-                               isLoading = {this.props.isLoading}
-                               isFiltered ={this.props.isFiltered}
-                               reverseKey ={this.props.reverseKey}
-                               setSelectedUserId={this.props.setSelectedUserId}
-                               selectedUserId={this.props.selectedUserId}
-                               setCurrentUser={this.props.setCurrentUser}
-                               pageSize={this.props.pageSize}
-                               currentPage={this.props.currentPage}
-                               sortTable={this.props.sortTable}
-                               setSortKey={this.props.setSortKey}
-                               sortKey={this.props.sortKey}
-                               reverse ={this.props.reverse}
-                               currentUser={this.props.currentUser}
-
+                            filter={this.props.filter}
+                            resetFilter={this.props.resetFilter}
                         />
-
-
                     </div>
+                </div>
+                <div className={tableContainer.table}>
+                    <Table table={(this.props.isFiltered)
+                        ? this.props.filteredTable.slice(pointSlice, pointSlice2)
+                        : this.props.table.slice(pointSlice, pointSlice2)}
+
+                           isLoading={this.props.isLoading}
+                           isFiltered={this.props.isFiltered}
+                           reverseKey={this.props.reverseKey}
+                           setSelectedUserId={this.props.setSelectedUserId}
+                           selectedUserId={this.props.selectedUserId}
+                           setCurrentUser={this.props.setCurrentUser}
+                           pageSize={this.props.pageSize}
+                           currentPage={this.props.currentPage}
+                           sortTable={this.props.sortTable}
+                           setSortKey={this.props.setSortKey}
+                           sortKey={this.props.sortKey}
+                           reverse={this.props.reverse}
+                           currentUser={this.props.currentUser}
+
+                    />
 
                 </div>
             </div>
@@ -130,10 +129,11 @@ let mapStateToProps = (state) => {
 
 
 export default connect(mapStateToProps, {
-    getTable, toggleIsLoading,  setCurrentPage, setSelectedUserId, setCurrentUser,
+    getTable, toggleIsLoading, setCurrentPage, setSelectedUserId, setCurrentUser,
     addNewUserToRedux, OnPageNumberChange, filter, resetFilter, toggleIsFiltered,
     setSortKey, reverse,
-    sortTable})
+    sortTable
+})
 (TableContainer);
 
 

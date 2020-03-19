@@ -1,10 +1,12 @@
-.container{
+.header{
     padding-left:150px;
-
+    background-color: #FEEBEF;
 }
 .filter{
+    padding-top:30px;
     width: 750px;
 }
 .table {
     padding-top: 20px;
+    padding-left:150px;
 }

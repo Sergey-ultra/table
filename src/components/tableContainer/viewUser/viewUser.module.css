@@ -2,10 +2,12 @@
     text-align: left;
 }
 .selectedUser {
-    background: linear-gradient(#42a1ec,#0070c9);
+    background: linear-gradient(#e3f3ff,#0070c9);
+
 }
 
 .description{
-    height: 50px;
-    width: 400px;
+    border: 1px solid #d6d6d6;
+    height: 100%;
+    width: 450px;
 }

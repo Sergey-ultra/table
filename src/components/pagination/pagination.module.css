@@ -1,11 +1,13 @@
 .block{
-    padding-left:150px;
+    margin:10px;
     float: left;
-    heigth:28px;
+    text-align: left;
+    height:28px;
     width:900px;
 }
 
-span {padding:5px;
+span {
+    padding:5px;
 }
 
 .block .currentPage{

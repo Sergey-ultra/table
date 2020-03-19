@@ -1,0 +1,23 @@
+.common{
+    width: 750px;
+    height:100%;
+    background-color: #FEEBEF;
+}
+
+.userInput{
+    width: 750px;
+    background-color: #FEEBEF;
+    display:flex;
+    padding: 10px 0px;
+
+}
+.userInputItem{
+    margin: 0 5px;
+}
+.userInput button {
+    background-color: #fff ;
+    border-radius:4px;
+    border: 1px solid #f2b5c1;
+    box-shadow: 0 2px 1px rgba(0,0,0,.05);
+
+}
