@@ -1,5 +1,5 @@
 import React from "react";
-import {getTable, setTotalCount} from "../../state/table-reducer";
+import {getTable,  setTotalCount} from "../../state/table-reducer";
 import {connect} from "react-redux";
 import {NavLink} from "react-router-dom";
 import {choice} from './choice.module.css'

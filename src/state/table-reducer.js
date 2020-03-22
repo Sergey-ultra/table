@@ -1,4 +1,6 @@
 import React from "react";
+import localData from '../localData.json'
+import localData1000 from '../localData1000.json'
 
 
 const SET_DATA = 'SET_DATA';
@@ -264,18 +266,18 @@ const tableReducer = (state = initialState, action) => {
                 return 0;
             }
             let funcFname = (a, b) => {
-                if (a.fname < b.fname) return -1;
-                if (a.fname > b.fname) return 1;
+                if (a.fname.toLowerCase() < b.fname.toLowerCase()) return -1;
+                if (a.fname.toLowerCase() > b.fname.toLowerCase()) return 1;
                 return 0;
             }
             let funcLname = (a, b) => {
-                if (a.lname < b.lname) return -1;
-                if (a.lname > b.lname) return 1;
+                if (a.lname.toLowerCase() < b.lname.toLowerCase()) return -1;
+                if (a.lname.toLowerCase() > b.lname.toLowerCase()) return 1;
                 return 0;
             }
             let funcEmail = (a, b) => {
-                if (a.email < b.email) return -1;
-                if (a.email > b.email) return 1;
+                if (a.email.toLowerCase() < b.email.toLowerCase()) return -1;
+                if (a.email.toLowerCase() > b.email.toLowerCase()) return 1;
                 return 0;
             }
             let funcTel = (a, b) => {
@@ -321,17 +323,29 @@ const tableReducer = (state = initialState, action) => {
 
         case
         ADD_NEW_USER_TO_REDUX: {
-
-            let newElement = action.newUser;
-            let newTable = [action.newUser, ...state.table]
+            let newElement = {
+                id: 0,
+                lname: action.newUser.lname,
+                fname: action.newUser.fname,
+                email:action.newUser.email,
+                tel: action.newUser.tel,
+                description: action.newUser.description,
+                address:{
+                    streetAddress:action.newUser.streetAddress,
+                    city: action.newUser.city,
+                    state: action.newUser.state,
+                    zip:action.newUser.zip
+                }
+            };
+            let newTable = [newElement, ...state.table];
             newTable.forEach((item, index) => {
                 item.id = index
             });
-            console.log(newTable);
-
             return {
                 ...state,
                 table: [...newTable],
+                selectedUserId: 0,
+                currentUser: newTable[0]
 
             }
         }
@@ -376,7 +390,8 @@ export const toggleFollowingProgress = (isFetching, userId) => ({
 export const getTable = (totalCount) => {
     return (dispatch) => {
         dispatch(toggleIsLoading(true));
-        let r = new XMLHttpRequest();
+       (totalCount == 32) ? dispatch(setData(localData)) : dispatch(setData(localData1000));
+        /*let r = new XMLHttpRequest();
         r.open("GET", `http://www.filltext.com?rows=${totalCount}&id={index}&fname={firstName}&lname={lastName}&email={email}&tel={phone|format}&address={addressObject}&description={lorem|32}`, true);
 
         r.onreadystatechange = () => {
@@ -384,7 +399,7 @@ export const getTable = (totalCount) => {
             let data = JSON.parse(r.responseText);
             dispatch(setData(data));
         };
-        r.send();
+        r.send();*/
         dispatch(toggleIsLoading(false));
     }
 }

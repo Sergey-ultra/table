@@ -13,6 +13,7 @@ let AddUser = (props) => {
             <div className={displayAddForm ? a.userInput : a.userInputHidden}>
                 <ReduxUserForm changeDisplayAddForm ={changeDisplayAddForm}onSubmit={(value) => {
                     changeDisplayAddForm(false);
+                    console.log(value);
                     props.addNewUserToRedux(value)
                 }}/>
             </div>

@@ -15,4 +15,18 @@ export const Input = ({input,  placeholder, type, meta: { touched, error, warnin
 
     )
 }
+export const Textarea = ({input,  placeholder, type, meta: { touched, error, warning }, ...props}) => {
+    return (
+
+        <div className ={touched && error ? styles.error: ""}>
+            <div>
+                <textarea {...input} placeholder={placeholder} type={type}/>
+                {touched &&
+                ((error && <span>{error}</span>) ||
+                    (warning && <span>{warning}</span>))}
+            </div>
+        </div>
+
+    )
+}
 

@@ -1,4 +1,4 @@
-export const required = value => (value || typeof value === 'number' ? undefined : 'Required');
+export const required = value => (value || typeof value === 'number' ? undefined : 'Пустое поле');
 
 const maxLength = max => value =>
     value && value.length > max ? `Должно быть меньше ${max} символов` : undefined;
@@ -6,7 +6,7 @@ const maxLength = max => value =>
 export const maxLength15 = maxLength(15);
 
 const minLength = min => value =>
-    value && value.length < min ? `Must be ${min} characters or more` : undefined;
+    value && value.length < min ? `Должно быть ${min} символов или больше` : undefined;
 
 export const minLength2 = minLength(2)
 
